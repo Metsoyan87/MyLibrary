@@ -25,8 +25,6 @@ public class BookManager {
             ps.setDouble(3, book.getPrice());
             ps.setString(4, book.getProfilePic());
             ps.setInt(5, book.getAuthor().getId());
-
-
             ps.executeUpdate();
             ResultSet resultSet = ps.getGeneratedKeys();
             if (resultSet.next()) {
@@ -86,6 +84,7 @@ public class BookManager {
                 .title(resultSet.getString("title"))
                 .description(resultSet.getString("description"))
                 .price(resultSet.getDouble("price"))
+                .profilePic(resultSet.getString("profile_pic"))
                 .author(authorManager.getById(resultSet.getInt("author_id")))
                 .build();
     }

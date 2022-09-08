@@ -26,8 +26,17 @@ public class AddUserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+//        User user = (User) req.getSession().getAttribute("user");
+        List<User> alUser = userManager.getAllUsers();
+        req.setAttribute("users", alUser);
         req.getRequestDispatcher("/WEB-INF/addUser.jsp").forward(req, resp);
+
+        //filtr
+//        if (user != null) {
+//            req.getRequestDispatcher("/WEB-INF/addUser.jsp").forward(req, resp);
+//        } else {
+//            resp.sendRedirect("/");
+//        }
     }
 
     @Override
@@ -35,7 +44,7 @@ public class AddUserServlet extends HttpServlet {
         String email = req.getParameter("email");
         if (userManager.getUserByEmail(email) != null) {
             req.setAttribute("msg", "User already exists");
-            req.getRequestDispatcher("/WEB-INF/addUser.jsp").forward(req,resp);
+            req.getRequestDispatcher("/WEB-INF/addUser.jsp").forward(req, resp);
         } else {
             String name = req.getParameter("name");
             String surname = req.getParameter("surname");

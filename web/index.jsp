@@ -23,23 +23,18 @@
         <a href="/authors">Show all authors</a>
         <a href="/books/add">Add book</a>
         <a href="/authors/add">Add new author</a>
-        <a href="/logout">Logout</a>
+        <a style="color: blue" href="/logout">Logout</a>
         <%}%>
-
-        <%
-            if (user != null) {
-        %>
-
-        <%} else {%>
-        <a href="/users/add">Register</a>
-        <a href="/login">Login</a>
-        <%}%>
-
     </div>
-
-
 </div>
 
-
+<div style="width: 1000px; margin: 0 auto">
+    <%
+        if (user == null) {
+    %>
+    <a href="/users/add">Register</a>
+    <a href="/login">Login</a>
+    <%}%>
+</div>
 </body>
 </html>
