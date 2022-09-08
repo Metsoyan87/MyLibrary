@@ -16,6 +16,7 @@
 <table border="1">
 
     <tr>
+        <th>image</th>
         <th>id</th>
         <th>name</th>
         <th>surname</th>
@@ -29,6 +30,12 @@
     %>
 
     <tr>
+        <td><% if (author.getProfilePic() == null || author.getProfilePic().length() == 0) {%>
+            <img src="/image/defaultProfilePic.PNG" width="100"/>
+            <% } else { %>
+            <img src="/getImage?profilePic=<%=author.getProfilePic()%>" width="100"/>
+            <% }%>
+        </td>
         <td><%=author.getId()%>
         </td>
         <td><%=author.getName()%>

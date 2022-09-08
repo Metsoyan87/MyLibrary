@@ -17,13 +17,14 @@ public class BookManager {
 
 
     public void addBook(Book book) {
-        String sql = "insert into book(title,description,price,author_id) VALUES (?,?,?,?)";
+        String sql = "insert into book(title,description,price,profile_pic,author_id) VALUES (?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, book.getTitle());
             ps.setString(2, book.getDescription());
             ps.setDouble(3, book.getPrice());
-            ps.setInt(4, book.getAuthor().getId());
+            ps.setString(4, book.getProfilePic());
+            ps.setInt(5, book.getAuthor().getId());
 
 
             ps.executeUpdate();
@@ -90,14 +91,15 @@ public class BookManager {
     }
 
     public void editBook(Book book) {
-        String sql = "update book set title = ?,description = ?,price = ?, author_Id = ? WHERE id = ?";
+        String sql = "update book set title = ?,description = ?,price = ?,author_Id = ?, profile_pic=? WHERE id = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, book.getTitle());
             ps.setString(2, book.getDescription());
             ps.setDouble(3, book.getPrice());
             ps.setInt(4, book.getAuthor().getId());
-            ps.setInt(5, book.getId());
+            ps.setString(5, book.getProfilePic());
+            ps.setInt(6, book.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

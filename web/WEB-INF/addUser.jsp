@@ -4,17 +4,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Add Author</title>
+    <title>Add User</title>
 </head>
 <body>
-PLease input author
-<form action="/authors/add" method="post" enctype="multipart/form-data">
+
+<%
+    String msg = (String)request.getAttribute("msg");
+%>
+
+<% if (msg != null) {%>
+<p style="color: maroon"><%=msg%></p>
+
+<%}%>
+
+
+<form action="/users/add" method="post">
     <input type="text" name="name" placeholder="please input name"><br>
     <input type="text" name="surname" placeholder="please input surName"><br>
     <input type="email" name="email" placeholder="please input email"><br>
-    <input type="text" name="age" placeholder="please input age"><br>
-    <h5>Profile Picture</h5>
-    <input type="file" name="profilePic"><br>
+    <input type="password" name="password" placeholder="please input password"><br>
     <input type="submit" value="Register">
 
 

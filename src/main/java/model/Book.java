@@ -15,6 +15,8 @@ public class Book {
     private String description;
     private double price;
     private Author author;
+    private String profilePic;
+
 
     public Book(String title, String description, double price, int authorId) {
         this.title = title;
