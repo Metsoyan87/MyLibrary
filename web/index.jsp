@@ -26,16 +26,9 @@
         <a href="/logout">Logout</a>
         <%}%>
 
-        <%
-            if (user != null) {
-        %>
-
-        <%} else {%>
         <a href="/users/add">Register</a>
         <a href="/login">Login</a>
-        <%}%>
-
-    </div>
+        </div>
 
 
 </div>
