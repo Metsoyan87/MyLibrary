@@ -90,7 +90,7 @@ public class BookManager {
     }
 
     public void editBook(Book book) {
-        String sql = "update book set title = ?,description = ?,price = ?,author_Id = ?, profile_pic=? WHERE id = ?";
+        String sql = "UPDATE book set title = ?,description = ?,price = ?,author_Id = ?, profile_pic=? WHERE id = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, book.getTitle());

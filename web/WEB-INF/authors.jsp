@@ -1,7 +1,5 @@
 <%@ page import="java.util.List" %>
 <%@ page import="model.Author" %>
-
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -26,8 +24,7 @@
         <th>action</th>
     </tr>
 
-    <% for (Author author : authors) {
-    %>
+    <% for (Author author : authors) {%>
 
     <tr>
         <td><% if (author.getProfilePic() == null || author.getProfilePic().length() == 0) {%>

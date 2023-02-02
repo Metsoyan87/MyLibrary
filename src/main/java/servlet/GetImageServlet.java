@@ -13,7 +13,7 @@ import java.io.OutputStream;
 @WebServlet(urlPatterns = "/getImage")
 public class GetImageServlet extends HttpServlet {
 
-    private static final String IMAGE_PATH = "C:\\Users\\Mnac\\IdeaProjects\\myLibrary\\myLibraryImages/";
+    private static final String IMAGE_PATH = "C:\\Users\\Mnac\\IdeaProjects\\myLibrary\\myLibraryImages";
 
 
     @Override
